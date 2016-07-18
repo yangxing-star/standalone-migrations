@@ -1,5 +1,5 @@
 namespace :db do
-  desc "Creates a new migration file with the specified name, specified DATABASE(rake db:new_migration name=add_im_id_to_users DATABASE=kalemao)"
+  desc "Creates a new migration file(rake db:new_migration name=add_im_id_to_users DATABASE=kalemao)"
   task :new_migration, :name do |t, args|
     name = ENV['name']
     database = ENV['DATABASE'] || 'kalemao'
