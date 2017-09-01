@@ -9,7 +9,7 @@ module StandaloneMigrations
     end
 
     def self.custom_migration(name, database)
-      migrate_path = "#{Rails.root}/db/migrate/#{database}"
+      migrate_path = "db/migrate/#{database}"
       Dir.mkdir(migrate_path) unless File.directory?(migrate_path)
       file_name = "#{migrate_path}/#{Time.now.to_s(:number)}_#{name}.rb"
       File.open(file_name, 'w') do |f|
@@ -26,7 +26,7 @@ module StandaloneMigrations
         f.puts 'end'
         f.close
       end
-      p "generate #{file_name}"
+      system "echo generate #{file_name}"
     end
   end
 end
